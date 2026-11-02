@@ -28,6 +28,7 @@ jobs:
           cache: npm
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
@@ -35,6 +36,8 @@ jobs:
 
       - name: Build with Next.js (Static Export)
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
