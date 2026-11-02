@@ -47,6 +47,13 @@ export const PERSONAL_INFO = {
   ],
 };
 
+export const EDUCATION = {
+  degree: "Bachelor of Engineering in Computer Science",
+  institution: "University of Mumbai",
+  location: "Mumbai, India",
+  period: "2019 – 2023",
+};
+
 export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "se-3",

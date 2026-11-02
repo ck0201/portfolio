@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { EXPERIENCES } from "@/data/portfolioData";
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { EXPERIENCES, EDUCATION } from "@/data/portfolioData";
+import { Briefcase, Calendar, MapPin, CheckCircle2, GraduationCap } from "lucide-react";
 
 export default function Experience() {
   const [selectedExpId, setSelectedExpId] = useState(EXPERIENCES[0].id);
@@ -106,6 +106,24 @@ export default function Experience() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Education Bar */}
+        <div className="mt-8 p-4 rounded-xl glass-panel flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-white/[0.08]">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+              <GraduationCap className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-white">{EDUCATION.degree}</div>
+              <div className="text-xs text-zinc-400">
+                {EDUCATION.institution} • {EDUCATION.location}
+              </div>
+            </div>
+          </div>
+          <div className="text-xs font-mono text-zinc-400 bg-white/[0.03] border border-white/10 px-2.5 py-1 rounded-lg self-start sm:self-auto">
+            {EDUCATION.period}
           </div>
         </div>
       </div>
