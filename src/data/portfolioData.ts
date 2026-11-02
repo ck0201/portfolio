@@ -3,13 +3,11 @@ export interface Project {
   title: string;
   subtitle: string;
   description: string;
-  category: "AI & Systems" | "Full Stack (.NET + Angular)";
   tags: string[];
-  metrics: string[];
+  metrics?: string;
   liveUrl?: string;
   githubUrl?: string;
-  architectureHighlights: string[];
-  featured: boolean;
+  highlights: string[];
 }
 
 export interface ExperienceItem {
@@ -18,55 +16,51 @@ export interface ExperienceItem {
   company: string;
   location: string;
   period: string;
-  isCurrent?: boolean;
-  promotionBadge?: string;
+  badge?: string;
   highlights: string[];
   technologies: string[];
 }
 
-export interface SkillCategory {
-  title: string;
-  description: string;
-  skills: { name: string; highlight?: boolean }[];
+export interface SkillGroup {
+  category: string;
+  skills: string[];
 }
 
 export const PERSONAL_INFO = {
   name: "Chandan Gupta",
-  badge: "Software Engineer III • Onflo",
-  headline: "Senior Full-Stack .NET & AI Systems Engineer",
-  tagline:
-    "Architecting high-throughput distributed microservices, real-time voice streaming platforms, and LLM-powered enterprise workflows.",
-  location: "Mumbai, India (Open to Noida / Hybrid)",
+  role: "Full-Stack .NET Developer",
+  subRole: "Software Engineer III • Onflo",
+  headline: "Full-Stack .NET Developer & Backend Engineer",
+  bio: "Software Engineer with 3.5+ years of experience building scalable backend microservices, REST APIs, and full-stack applications with .NET Core, C#, Angular, and SQL Server. Experienced in integrating LLMs (OpenAI, Gemini) into backend workflows and working with Twilio for programmable telephony and call routing.",
+  location: "Mumbai, India",
   email: "chandan.cg799@gmail.com",
   phone: "+91-8080904958",
   github: "https://github.com/ck0201",
   linkedin: "https://linkedin.com/in/chandangupta8080",
   resumePath: "./Chandan_Gupta_Resume.pdf",
-  status: "Available for Senior & High-Impact Engineering Roles",
   stats: [
-    { label: "Career Progression", value: "Trainee → SE III", description: "3 promotions in 3.5 years" },
-    { label: "Telephony Traffic", value: "30K+ Calls/Day", description: "Handled across distributed microservices" },
-    { label: "Voice Streaming Latency", value: "< 200 ms", description: "WebRTC SFU + LLM voice agents" },
-    { label: "Financial Transactions", value: "10K+ / Day", description: "Reconciled with zero spreadsheet errors" },
+    { label: "Experience", value: "3.5+ Years", note: "Trainee → SE III at Onflo" },
+    { label: "Core Stack", value: ".NET & C#", note: "ASP.NET Core, Web API, EF Core" },
+    { label: "Frontend", value: "Angular", note: "TypeScript, SPAs, Components" },
+    { label: "AI & Telephony", value: "LLMs + Twilio", note: "OpenAI, Gemini, Call Routing" },
   ],
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "se-3",
-    role: "Software Engineer III (AI & Full Stack / Backend)",
+    role: "Software Engineer III",
     company: "Onflo",
     location: "Mumbai, India",
     period: "June 2026 – Present",
-    isCurrent: true,
-    promotionBadge: "Promotion to SE III",
+    badge: "Current Role",
     highlights: [
-      "Lead technical architecture for real-time AI voice routing, orchestrating autonomous LLM agents via LiveKit WebRTC with sub-200ms end-to-end latency.",
-      "Engineered intent-based dispatch workflows parsing live LLM transcripts, slashing misrouted calls by 35% and customer hold times by 30%.",
-      "Partnered with cross-functional Data Science and UI teams to standardize WebSocket and REST contracts, ensuring <50ms latency for 50+ concurrent streams.",
-      "Drive engineering standards across the org: conduct architectural design reviews, establish clean code guidelines, and mentor junior engineers on .NET Core microservices.",
+      "Work with Twilio programmable telephony APIs and WebSockets to route, monitor, and manage high-volume inbound calls.",
+      "Integrate LLMs (OpenAI, Gemini) to parse live transcripts and extract caller intent, cutting misrouted calls by 35% and hold times by 30%.",
+      "Collaborate with cross-functional teams to standardize backend API contracts and WebSocket event formats.",
+      "Review technical designs, mentor junior developers on .NET Core best practices, and refactor legacy service endpoints.",
     ],
-    technologies: ["C#", ".NET Core 8/9", "LiveKit SFU", "WebRTC", "LLMs (OpenAI/Gemini)", "WebSockets", "Redis", "Microservices"],
+    technologies: ["C#", ".NET Core", "Twilio API", "LLMs (OpenAI/Gemini)", "WebSockets", "Redis", "Microservices"],
   },
   {
     id: "se-2",
@@ -74,14 +68,14 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: "Onflo",
     location: "Mumbai, India",
     period: "June 2025 – June 2026",
-    promotionBadge: "Promotion to SE II",
+    badge: "Promotion",
     highlights: [
-      "Architected and deployed an automated financial reconciliation engine from scratch in .NET Core and SQL Server, eliminating manual spreadsheets and processing 10K+ daily transactions.",
-      "Optimized T-SQL stored procedures, database indexes, and relational schemas to accelerate batch reconciliation query execution by 40%.",
-      "Built resilient asynchronous ingestion pipelines with dead-letter queueing, idempotent processing, and tenant isolation, maintaining 99.9% batch uptime.",
-      "Eliminated race conditions across 20K+ daily webhook ingestion events by implementing a centralized state machine with Redis distributed locking.",
+      "Built an automated transaction reconciliation engine in .NET Core and SQL Server from scratch, replacing manual spreadsheets for 10K+ daily records.",
+      "Designed and optimized T-SQL stored procedures, database indexes, and relational schemas, reducing batch query execution times by 40%.",
+      "Created asynchronous processing workers with RabbitMQ and dead-letter queues to handle webhook ingestion spikes with 99.9% uptime.",
+      "Implemented a centralized state machine with Redis distributed locks to eliminate concurrency race conditions.",
     ],
-    technologies: [".NET Core", "SQL Server (T-SQL)", "Stored Procedures", "RabbitMQ", "Redis Distributed Locks", "Idempotency"],
+    technologies: [".NET Core", "SQL Server", "T-SQL", "Stored Procedures", "RabbitMQ", "Redis", "Idempotency"],
   },
   {
     id: "se-1",
@@ -89,14 +83,14 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: "Onflo",
     location: "Mumbai, India",
     period: "August 2024 – June 2025",
-    promotionBadge: "Promotion to SE I",
+    badge: "Promotion",
     highlights: [
-      "Delivered full-stack features using Angular, TypeScript, and ASP.NET Core Web API, building responsive SPAs with modular reusable component architecture.",
-      "Authored shared internal NuGet packages adopted across 5+ backend teams, establishing organization-wide standards for structured logging and API error handling.",
-      "Benchmarked system throughput under heavy load by building an automated k6 testing harness simulating 500+ concurrent calls prior to production rollouts.",
-      "Automated local developer environments using Docker Compose for .NET microservices and databases, reducing developer onboarding time by 50%.",
+      "Developed full-stack modules using Angular, TypeScript, and ASP.NET Core Web API, delivering responsive single-page applications.",
+      "Authored shared internal NuGet packages for structured logging and standard API error handling adopted by 5+ backend teams.",
+      "Built load-testing harnesses using k6 simulating 500+ concurrent calls to identify bottlenecks before production releases.",
+      "Set up containerized local development environments using Docker Compose for microservices and databases.",
     ],
-    technologies: ["Angular", "TypeScript", "ASP.NET Core Web API", "NuGet Packages", "Docker", "k6 Load Testing", "CI/CD"],
+    technologies: ["Angular", "TypeScript", "ASP.NET Core Web API", "NuGet", "Docker", "k6 Load Testing", "Git"],
   },
   {
     id: "trainee",
@@ -105,152 +99,100 @@ export const EXPERIENCES: ExperienceItem[] = [
     location: "Mumbai, India",
     period: "June 2023 – August 2024",
     highlights: [
-      "Decomposed a legacy ASP.NET MVC monolith into modular ASP.NET Core RESTful APIs and Angular components, slashing page load latency by 40%.",
-      "Scaled high-volume IVR and call-distribution routing algorithms to reliably support 25K–30K daily inbound calls.",
-      "Accelerated routing configuration retrieval speeds by 10x by migrating in-memory caching to a distributed multi-node Redis cluster.",
+      "Helped migrate a legacy ASP.NET MVC monolith into modular ASP.NET Core RESTful APIs and Angular components, cutting page load latency by 40%.",
+      "Maintained and enhanced high-volume IVR and call-distribution logic supporting 25K–30K daily inbound calls.",
+      "Improved configuration retrieval speeds by moving frequently read settings to a multi-node Redis cache.",
     ],
-    technologies: ["ASP.NET MVC", "ASP.NET Core", "Angular", "Redis Distributed Cache", "IVR Algorithms", "C#"],
+    technologies: ["ASP.NET Core", "ASP.NET MVC", "Angular", "Redis", "C#", "SQL Server"],
   },
 ];
 
 export const PROJECTS: Project[] = [
   {
-    id: "ai-rulebook-rag",
+    id: "school-rulebook-rag",
     title: "School Rulebook AI Search",
-    subtitle: "Enterprise RAG Question-Answering System",
+    subtitle: "RAG Question-Answering Application",
     description:
-      "A high-precision Retrieval-Augmented Generation (RAG) QA platform designed to index and query 150+ pages of institutional policies and guidelines with zero hallucinations.",
-    category: "AI & Systems",
-    tags: ["Python", "Google Gemini", "RAG Pipeline", "pgvector", "Render"],
-    metrics: ["150+ Pages Indexed", "98%+ Factual Precision", "Sub-second Query Time"],
+      "A document question-answering tool that lets users search and query 150+ pages of institutional policies using natural language with verifiable citations.",
+    tags: ["Python", "Google Gemini API", "RAG", "pgvector", "Render"],
+    metrics: "150+ Pages Indexed • 98%+ Accuracy",
     liveUrl: "https://ai-document-rag-2a7t.onrender.com/",
     githubUrl: "https://github.com/ck0201/ai-document-rag",
-    architectureHighlights: [
-      "Chunked institutional PDFs into semantic passages stored with vector embeddings in pgvector.",
-      "Engineered prompt guardrails with negative constraints to eliminate hallucinations and enforce strict cite-backed answers.",
-      "Integrated health checks, latency logging, and Dockerized deployment on Render.",
+    highlights: [
+      "Chunked institutional PDFs into semantic passages and generated vector embeddings.",
+      "Implemented strict prompt guardrails with negative constraints to minimize hallucinations.",
+      "Deployed containerized service on Render with health checks and clean REST endpoints.",
     ],
-    featured: true,
   },
   {
     id: "last-time-tracker",
     title: "LastTime – Activity Tracker",
-    subtitle: "Full-Stack ASP.NET Core & Angular Platform",
+    subtitle: "Full-Stack .NET Core & Angular Application",
     description:
-      "Production-ready timeline tracking platform allowing users to monitor habits, recurring tasks, and life milestones with real-time updates and interactive analytics.",
-    category: "Full Stack (.NET + Angular)",
+      "A production-ready productivity and habit tracker allowing users to track recurrent tasks, view timelines, and analyze activity history.",
     tags: [".NET Core 8", "Angular 17", "TypeScript", "PostgreSQL", "Vercel"],
-    metrics: ["40+ REST Endpoints", "<50ms Database Queries", "JWT Auth & Refresh Flow"],
+    metrics: "40+ REST Endpoints • <50ms Query Times",
     liveUrl: "https://last-time-rose.vercel.app/login",
     githubUrl: "https://github.com/ck0201/LastTime",
-    architectureHighlights: [
-      "Architected clean layered architecture with repository pattern and CQRS-lite separation in ASP.NET Core.",
-      "Structured normalized relational database schemas on Neon PostgreSQL with custom B-tree indices.",
-      "Built a modern, responsive Angular SPA deployed on Vercel with reactive state management and route guards.",
+    highlights: [
+      "Engineered backend REST APIs with ASP.NET Core using repository pattern and JWT authentication.",
+      "Designed normalized PostgreSQL schemas with optimized B-tree indexes.",
+      "Built a responsive Angular SPA with route guards, reactive forms, and state management.",
     ],
-    featured: true,
   },
   {
-    id: "voice-routing-engine",
-    title: "Real-Time AI Voice Dispatch Engine",
-    subtitle: "Low-Latency Autonomous Telephony Gateway",
+    id: "transaction-reconciliation",
+    title: "Automated Reconciliation Engine",
+    subtitle: "High-Volume Transaction Matching System",
     description:
-      "High-throughput telephony and voice intelligence pipeline connecting inbound callers to autonomous LLM voice agents over WebRTC with sub-second turnaround.",
-    category: "AI & Systems",
-    tags: ["C# / .NET Core", "LiveKit WebRTC SFU", "OpenAI / LLM", "WebSockets", "Redis Streams"],
-    metrics: ["sub-200ms Voice Latency", "35% Misroute Reduction", "50+ Concurrent Streams"],
-    architectureHighlights: [
-      "Integrated LiveKit SFU for low-latency bi-directional audio packet transport over WebRTC.",
-      "Real-time transcript analysis worker dynamically extracts caller intent to dispatch downstream actions.",
-      "Resilient fallback mechanism instantly reroutes to human agents upon sentiment escalation.",
+      "A robust financial reconciliation service built to match and validate 10,000+ daily financial records across payment gateways and ledger entries.",
+    tags: [".NET Core", "SQL Server", "T-SQL Stored Procedures", "RabbitMQ", "Redis"],
+    metrics: "10K+ Daily Transactions • 40% Faster Execution",
+    highlights: [
+      "Designed batch matching logic with configurable tolerance rules and exception auditing.",
+      "Written and tuned complex T-SQL stored procedures and indexing strategies for high throughput.",
+      "Utilized RabbitMQ queues and Redis locks to guarantee idempotent, duplicate-safe processing.",
     ],
-    featured: true,
   },
   {
-    id: "financial-reconciliation-engine",
-    title: "Automated Financial Reconciliation Engine",
-    subtitle: "Idempotent High-Volume Transaction Matcher",
+    id: "twilio-call-router",
+    title: "Twilio Telephony & Smart Call Router",
+    subtitle: "Programmable Inbound Call Dispatch Service",
     description:
-      "Core transaction processing platform built to ingest, validate, and match 10,000+ financial records daily across disparate payment gateways and ERP ledgers.",
-    category: "Full Stack (.NET + Angular)",
-    tags: [".NET Core", "SQL Server", "T-SQL Stored Procedures", "RabbitMQ", "Redis Locks"],
-    metrics: ["10K+ Daily Transactions", "40% Faster Query Exec", "99.9% Batch Uptime"],
-    architectureHighlights: [
-      "Designed batch reconciliation algorithms executing high-speed record pairing with configurable tolerance rules.",
-      "Optimized T-SQL stored procedures and index execution plans for high-throughput transactional queries.",
-      "Utilized dead-letter queues and distributed Redis locks to ensure strict exactly-once processing guarantees.",
+      "Backend telephony integration connecting Twilio voice webhooks with .NET microservices and LLM intent recognition to route incoming calls efficiently.",
+    tags: ["C#", ".NET Core", "Twilio API", "WebSockets", "LLMs (OpenAI)", "Redis"],
+    metrics: "35% Misroute Reduction • Real-Time WebSockets",
+    highlights: [
+      "Integrated Twilio voice webhooks and WebSocket audio streams for live call handling.",
+      "Used LLMs to parse caller speech transcripts in real time to categorize intent.",
+      "Automated fallback routing to human agents when sentiment or complexity exceeds threshold.",
     ],
-    featured: true,
   },
 ];
 
-export const SKILL_CATEGORIES: SkillCategory[] = [
+export const SKILL_GROUPS: SkillGroup[] = [
   {
-    title: "Backend & Microservices",
-    description: "Building high-performance, fault-tolerant enterprise APIs and services.",
-    skills: [
-      { name: "C#", highlight: true },
-      { name: ".NET Core 8/9", highlight: true },
-      { name: "ASP.NET Web API", highlight: true },
-      { name: "Entity Framework Core", highlight: true },
-      { name: "ASP.NET MVC" },
-      { name: "FastAPI / Python" },
-      { name: "Microservices Architecture", highlight: true },
-      { name: "CQRS & Event-Driven" },
-      { name: "RESTful API Design" },
-      { name: "Idempotency & Resilience" },
-    ],
+    category: "Languages & Core",
+    skills: ["C#", "TypeScript", "Python", "SQL (T-SQL)", "JavaScript"],
   },
   {
-    title: "AI & Real-Time Intelligence",
-    description: "Integrating LLMs, vector search, and sub-second streaming into production systems.",
-    skills: [
-      { name: "LLM Integration (Gemini, OpenAI)", highlight: true },
-      { name: "RAG Pipelines", highlight: true },
-      { name: "Vector Embeddings & pgvector", highlight: true },
-      { name: "Semantic Kernel / LangChain" },
-      { name: "Prompt Guardrails & Tuning", highlight: true },
-      { name: "WebRTC (LiveKit SFU)", highlight: true },
-      { name: "WebSockets & SignalR" },
-      { name: "Real-Time Audio Pipelines" },
-    ],
+    category: "Backend & Web APIs",
+    skills: [".NET Core 8/9", "ASP.NET Web API", "Entity Framework Core", "ASP.NET MVC", "FastAPI", "Microservices", "REST APIs"],
   },
   {
-    title: "Frontend & SPA Engineering",
-    description: "Crafting modular, responsive, high-fidelity single-page web applications.",
-    skills: [
-      { name: "Angular (14-17+)", highlight: true },
-      { name: "TypeScript", highlight: true },
-      { name: "React / Next.js", highlight: true },
-      { name: "Tailwind CSS", highlight: true },
-      { name: "State Management (RxJS/Signals)" },
-      { name: "Component Libraries & Design Systems" },
-      { name: "Responsive UI & Performance" },
-    ],
+    category: "Frontend Development",
+    skills: ["Angular (14–17)", "TypeScript", "HTML5 & CSS3", "Tailwind CSS", "RxJS", "Responsive UI"],
   },
   {
-    title: "Databases & Performance Tuning",
-    description: "Designing relational schemas, stored procedures, and low-latency caching layers.",
-    skills: [
-      { name: "SQL Server (T-SQL)", highlight: true },
-      { name: "Stored Procedures & Index Tuning", highlight: true },
-      { name: "PostgreSQL", highlight: true },
-      { name: "Redis (Caching, Pub/Sub, Streams)", highlight: true },
-      { name: "RabbitMQ (Queues & Dead-letter)", highlight: true },
-      { name: "Neon DB / Cloud SQL" },
-    ],
+    category: "AI, APIs & Telephony",
+    skills: ["LLM Integration (OpenAI, Gemini)", "RAG Pipelines", "Vector Search (pgvector)", "Twilio Voice API", "WebSockets"],
   },
   {
-    title: "Cloud, DevOps & Tooling",
-    description: "Containerization, automated deployments, and enterprise development tooling.",
-    skills: [
-      { name: "Azure (App Services, Azure OpenAI)", highlight: true },
-      { name: "Docker & Docker Compose", highlight: true },
-      { name: "CI/CD Pipelines (GitHub Actions)", highlight: true },
-      { name: "Git & TFVC" },
-      { name: "Linux / Bash" },
-      { name: "k6 Load Testing" },
-      { name: "Agile / Scrum Methodologies" },
-    ],
+    category: "Databases & Messaging",
+    skills: ["SQL Server (Stored Procedures, Indexing)", "PostgreSQL", "Redis (Cache & Pub/Sub)", "RabbitMQ"],
+  },
+  {
+    category: "DevOps & Tools",
+    skills: ["Docker & Docker Compose", "Azure Basics", "Git", "CI/CD (GitHub Actions)", "Linux", "k6 Load Testing", "Agile/Scrum"],
   },
 ];
