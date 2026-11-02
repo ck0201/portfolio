@@ -11,6 +11,7 @@ import {
   Terminal,
   Database,
   Radio,
+  Layers,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
@@ -21,6 +22,23 @@ export default function Hero() {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const getStatIcon = (idx: number) => {
+    switch (idx) {
+      case 0:
+        return <Terminal className="w-3.5 h-3.5 text-cyan-400" />;
+      case 1:
+        return <Code2 className="w-3.5 h-3.5 text-indigo-400" />;
+      case 2:
+        return <Database className="w-3.5 h-3.5 text-emerald-400" />;
+      case 3:
+        return <Layers className="w-3.5 h-3.5 text-sky-400" />;
+      case 4:
+        return <Radio className="w-3.5 h-3.5 text-amber-400" />;
+      default:
+        return <Code2 className="w-3.5 h-3.5 text-cyan-400" />;
+    }
   };
 
   return (
@@ -43,7 +61,7 @@ export default function Hero() {
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-mono text-indigo-300">
             <Code2 className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Full-Stack .NET + LLM Integration</span>
+            <span>.NET Core • SQL Server • Angular • LLM & Twilio</span>
           </div>
         </div>
 
@@ -54,14 +72,14 @@ export default function Hero() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
               .NET Systems
             </span>{" "}
-            & Production APIs
+            & High-Performance Databases
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed max-w-2xl mx-auto mb-8">
             Hi, I&apos;m <span className="text-white font-semibold">{PERSONAL_INFO.name}</span>. I&apos;m
             a full-stack developer with 3.5+ years of experience engineering backend microservices,
-            relational databases, and Angular SPAs, with practical hands-on experience integrating
-            LLMs and building Twilio calling workflows.
+            tuning SQL Server & PostgreSQL databases, and building responsive Angular SPAs—with
+            practical experience integrating LLMs and Twilio calling workflows.
           </p>
 
           {/* Action Buttons */}
@@ -126,27 +144,26 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 4 Stat Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto">
+        {/* 5 Core Pillars Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 max-w-5xl mx-auto">
           {PERSONAL_INFO.stats.map((stat, idx) => (
             <div
               key={idx}
-              className="glass-card p-4 rounded-xl flex flex-col justify-between"
+              className={`glass-card p-4 rounded-xl flex flex-col justify-between ${
+                idx === 4 ? "col-span-2 sm:col-span-1" : ""
+              }`}
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400">
                   {stat.label}
                 </span>
-                {idx === 0 && <Terminal className="w-3.5 h-3.5 text-cyan-400" />}
-                {idx === 1 && <Code2 className="w-3.5 h-3.5 text-indigo-400" />}
-                {idx === 2 && <Database className="w-3.5 h-3.5 text-emerald-400" />}
-                {idx === 3 && <Radio className="w-3.5 h-3.5 text-amber-400" />}
+                {getStatIcon(idx)}
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold tracking-tight text-white mb-0.5">
+                <div className="text-base sm:text-lg font-bold tracking-tight text-white mb-0.5">
                   {stat.value}
                 </div>
-                <div className="text-xs text-zinc-400">{stat.note}</div>
+                <div className="text-[11px] text-zinc-400 leading-snug">{stat.note}</div>
               </div>
             </div>
           ))}

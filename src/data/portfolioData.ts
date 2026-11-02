@@ -31,7 +31,7 @@ export const PERSONAL_INFO = {
   role: "Full-Stack .NET Developer",
   subRole: "Software Engineer III • Onflo",
   headline: "Full-Stack .NET Developer & Backend Engineer",
-  bio: "Software Engineer with 3.5+ years of experience building scalable backend microservices, REST APIs, and full-stack applications with .NET Core, C#, Angular, and SQL Server. Experienced in integrating LLMs (OpenAI, Gemini) into backend workflows and working with Twilio for programmable telephony and call routing.",
+  bio: "Software Engineer with 3.5+ years of experience building scalable backend microservices, REST APIs, and full-stack applications with .NET Core, C#, Angular, and relational databases. Deep hands-on experience in SQL Server (T-SQL, Stored Procedures, Index Tuning) and PostgreSQL, alongside practical integration of LLMs (OpenAI, Gemini) and Twilio programmable telephony.",
   location: "Mumbai, India",
   email: "chandan.cg799@gmail.com",
   phone: "+91-8080904958",
@@ -40,7 +40,8 @@ export const PERSONAL_INFO = {
   resumePath: "./Chandan_Gupta_Resume.pdf",
   stats: [
     { label: "Experience", value: "3.5+ Years", note: "Trainee → SE III at Onflo" },
-    { label: "Core Stack", value: ".NET & C#", note: "ASP.NET Core, Web API, EF Core" },
+    { label: "Backend Core", value: ".NET & C#", note: "ASP.NET Core, Web API, EF Core" },
+    { label: "Databases & SQL", value: "SQL Server & Postgres", note: "T-SQL, Stored Procs, Index Tuning" },
     { label: "Frontend", value: "Angular", note: "TypeScript, SPAs, Components" },
     { label: "AI & Telephony", value: "LLMs + Twilio", note: "OpenAI, Gemini, Call Routing" },
   ],
@@ -71,7 +72,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     badge: "Promotion",
     highlights: [
       "Built an automated transaction reconciliation engine in .NET Core and SQL Server from scratch, replacing manual spreadsheets for 10K+ daily records.",
-      "Designed and optimized T-SQL stored procedures, database indexes, and relational schemas, reducing batch query execution times by 40%.",
+      "Designed and optimized complex T-SQL stored procedures, database indexes, and relational schemas, reducing batch query execution times by 40%.",
       "Created asynchronous processing workers with RabbitMQ and dead-letter queues to handle webhook ingestion spikes with 99.9% uptime.",
       "Implemented a centralized state machine with Redis distributed locks to eliminate concurrency race conditions.",
     ],
@@ -172,27 +173,61 @@ export const PROJECTS: Project[] = [
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    category: "Languages & Core",
-    skills: ["C#", "TypeScript", "Python", "SQL (T-SQL)", "JavaScript"],
+    category: "Databases & Performance Tuning",
+    skills: [
+      "SQL Server (T-SQL)",
+      "Stored Procedures",
+      "Query Optimization & Index Tuning",
+      "PostgreSQL",
+      "Entity Framework Core",
+      "Redis (Caching & Locks)",
+      "Database Schema Design",
+    ],
   },
   {
     category: "Backend & Web APIs",
-    skills: [".NET Core 8/9", "ASP.NET Web API", "Entity Framework Core", "ASP.NET MVC", "FastAPI", "Microservices", "REST APIs"],
+    skills: [
+      ".NET Core 8/9",
+      "C#",
+      "ASP.NET Web API",
+      "ASP.NET MVC",
+      "Microservices",
+      "RESTful API Design",
+      "RabbitMQ (Queues)",
+      "FastAPI / Python",
+    ],
   },
   {
     category: "Frontend Development",
-    skills: ["Angular (14–17)", "TypeScript", "HTML5 & CSS3", "Tailwind CSS", "RxJS", "Responsive UI"],
+    skills: [
+      "Angular (14–17)",
+      "TypeScript",
+      "HTML5 & CSS3",
+      "Tailwind CSS",
+      "RxJS",
+      "Single Page Applications",
+    ],
   },
   {
     category: "AI, APIs & Telephony",
-    skills: ["LLM Integration (OpenAI, Gemini)", "RAG Pipelines", "Vector Search (pgvector)", "Twilio Voice API", "WebSockets"],
+    skills: [
+      "LLM Integration (OpenAI, Gemini)",
+      "RAG Pipelines",
+      "Vector Search (pgvector)",
+      "Twilio Voice API",
+      "WebSockets",
+      "Prompt Guardrails",
+    ],
   },
   {
-    category: "Databases & Messaging",
-    skills: ["SQL Server (Stored Procedures, Indexing)", "PostgreSQL", "Redis (Cache & Pub/Sub)", "RabbitMQ"],
-  },
-  {
-    category: "DevOps & Tools",
-    skills: ["Docker & Docker Compose", "Azure Basics", "Git", "CI/CD (GitHub Actions)", "Linux", "k6 Load Testing", "Agile/Scrum"],
+    category: "DevOps & Engineering Tools",
+    skills: [
+      "Docker & Docker Compose",
+      "Azure (App Services, DBs)",
+      "Git & GitHub Actions",
+      "Linux / Bash",
+      "k6 Load Testing",
+      "Agile / Scrum",
+    ],
   },
 ];
