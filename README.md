@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chandan Gupta — Engineering Portfolio
 
-## Getting Started
+A modern, high-performance developer portfolio built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS**, designed with a sleek Linear-style dark aesthetic for a **Senior Full-Stack .NET & AI Systems Engineer**.
 
-First, run the development server:
+---
+
+## ⚡ Features
+
+- **Linear-Style Dark Aesthetic**: High-contrast typography, subtle mesh radial glows, glassmorphism (`backdrop-blur`), and glowing borders.
+- **Interactive System Architecture Telemetry**: Live interactive flow diagrams demonstrating sub-200ms WebRTC voice loops, automated transaction reconciliation, and RAG pipelines.
+- **Career Velocity Timeline**: Visual breakdown of rapid career advancement at Onflo (Trainee → SE I → SE II → SE III).
+- **Featured Case Studies & Code**: Showcases real-world enterprise projects with system design highlights, metrics, live service links, and GitHub repository links.
+- **Interactive Contact & Telemetry**: One-click copy email/phone with instant feedback, direct mailto launcher, and one-click PDF resume download.
+- **GitHub Pages Ready**: Configured for static export (`output: 'export'`) with automated GitHub Actions CI/CD workflow (`.github/workflows/deploy.yml`).
+
+---
+
+## 🚀 Quick Start (Local Development)
 
 ```bash
+# Navigate to the portfolio directory
+cd portfolio
+
+# Install dependencies (if needed)
+npm install
+
+# Start local development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Static Production Build
 
-## Learn More
+```bash
+# Export static production site to /out
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+This generates an optimized static HTML/CSS/JS export in `./out` that can be hosted on any static provider (GitHub Pages, Vercel, Cloudflare Pages, Netlify).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Deploying to GitHub Pages
 
-## Deploy on Vercel
+### Option A: User Site (`https://ck0201.github.io/`)
+1. Create a repository on GitHub named **`ck0201.github.io`**.
+2. Link your local repository and push:
+   ```bash
+   git remote add origin https://github.com/ck0201/ck0201.github.io.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. In GitHub: go to **Settings** > **Pages** > **Build and deployment** > Source: **GitHub Actions**.
+4. The included `.github/workflows/deploy.yml` workflow will automatically build and deploy the site!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Option B: Project Site (`https://ck0201.github.io/portfolio/`)
+If you prefer naming the repository `portfolio`:
+1. In `next.config.ts`, set `basePath: '/portfolio'`.
+2. Push to your `portfolio` repository:
+   ```bash
+   git remote add origin https://github.com/ck0201/portfolio.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. Under **Settings** > **Pages**, set source to **GitHub Actions**.
